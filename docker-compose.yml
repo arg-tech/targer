@@ -1,0 +1,12 @@
+version: "3"
+services:
+  backend:
+    build: ./src/backend/
+    ports:
+      - 10600:6000
+    networks:
+      - targer
+
+networks:
+  targer:
+
