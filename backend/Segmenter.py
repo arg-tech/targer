@@ -85,7 +85,7 @@ class Segmenter():
 		- (int): the maximum node ID in the list of nodes
 		"""
 		# Initialize a variable to store the maximum node ID found so far
-		max_id  = 0
+		max_id  = 0 #
 		lef_n_id, right_n_id = 0, ""
 		if len(nodes) == 0:
 			return 0
