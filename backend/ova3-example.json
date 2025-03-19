@@ -1,0 +1,1032 @@
+{   "AIF": {      
+    "nodes": [ 
+        {
+                "nodeID": "2_164761847968435155",
+                "text":"If the main Scottish elections return a full independence government, what moral and legalright does the Westminster government have to deny another independence referendum","type":"L"
+            },
+            {
+                    "nodeID": "3_164761847968435155",
+                    "text":"Blair Unknown : If the main Scottish elections return a full independence government, what moral and legal right does the Westminster government have to deny another independence referendum","type":"L"
+                },
+                {
+                        "nodeID": "4_164761847968435155",
+                        "text": "Pure Questioning",
+                        "type": "YA"
+                    },
+                    {                        "nodeID": "5_164761847968435155",
+                        "text":"If the main Scottish elections return a full independence government, Westminster government have xxx moral and legal right to deny another independence referendum","type":"I"
+                    },
+                    
+                    {
+                            "nodeID": "7_164761847968435155",
+                            "text":"Kamila: Blair Unknown : If the main Scottish elections return a full independence government, what moral and legal right does the Westminster government have to deny another independence referendum","type":"L"
+                        },
+                        
+                        {
+                                "nodeID": "8_164761847968435155",
+                                "text": "Douglas Ross : I want to stop a pro-independence majority government",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "9_164761847968435155",
+                                "text": "Asserting",
+                                "type": "YA"
+                            },
+                            {
+                                "nodeID": "10_164761847968435155",
+                                "text": "Douglas Ross wants to stop a pro-independence majority government",
+                                "type": "I"
+                            },
+                            {
+                                "nodeID": "12_164761847968435155",
+                                "text": "Kamila: Douglas Ross : I want to stop a pro-independence majority government",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "14_164761847968435155",
+                                "text": "Default Transition",
+                                "type": "TA"
+                            },
+                            {
+                                "nodeID": "15_164761847968435155",
+                                "text": "Douglas Ross : I want to stop the SNP having a majority at this election, as the Scottish Conservatives did five years ago",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "16_164761847968435155",
+                                "text": "Asserting",
+                                "type": "YA"
+                            },
+                            {
+                                "nodeID": "17_164761847968435155",
+                                "text": "Douglas Ross wants to stop the SNP having a majority at this election, as the Scottish Conservatives did five years ago",
+                                "type": "I"
+                            },
+                            {
+                                "nodeID": "19_164761847968435155",
+                                "text": "Kamila: Douglas Ross : I want to stop the SNP having a majority at this election, as the Scottish Conservatives did five years ago",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "20_164761847968435155",
+                                "text": "Douglas Ross : It was by people uniting behind the Scottish Conservatives that stopped that SNP majority in 2016",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "21_164761847968435155",
+                                "text": "Asserting",
+                                "type": "YA"
+                            },
+                            {
+                                "nodeID": "22_164761847968435155",
+                                "text": "It was by people uniting behind the Scottish Conservatives that stopped that SNP majority in 2016",
+                                "type": "I"
+                            },
+                            {
+                                "nodeID": "24_164761847968435155",
+                                "text": "Kamila: Douglas Ross : It was by people uniting behind the Scottish Conservatives that stopped that SNP majority in 2016",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "26_164761847968435155",
+                                "text": "Default Transition",
+                                "type": "TA"
+                            },
+                            {
+                                "nodeID": "28_164761847968435155",
+                                "text": "Default Rephrase",
+                                "type": "MA"
+                            },
+                            {
+                                "nodeID": "30_164761847968435155",
+                                "text": "Restating",
+                                "type": "YA"
+                            },
+                            {
+                                "nodeID": "32_164761847968435155",
+                                "text": "Default Transition",
+                                "type": "TA"
+                            },
+                            {
+                                "nodeID": "33_164761847968435155",
+                                "text": "Douglas Ross : people can do that again at this election",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "34_164761847968435155",
+                                "text": "Asserting",
+                                "type": "YA"
+                            },
+                            {
+                                "nodeID": "35_164761847968435155",
+                                "text": "people can unite again at this election to stop the SNP majority",
+                                "type": "I"
+                            },
+                            {
+                                "nodeID": "37_164761847968435155",
+                                "text": "Kamila: Douglas Ross : people can do that again at this election",
+                                "type": "L"
+                            },
+                            {
+                                "nodeID": "39_164761847968435155",
+                                "text": "Default Transition",
+                                "type": "TA"
+                            },
+                            {
+                                "nodeID": "41_164761847968435155",
+                                "text": "Default Inference",
+                                "type": "RA"
+                            },
+                            {
+                                "nodeID": "43_164761847968435155",
+                                "text": "Arguing",
+                                "type": "YA"
+                            }
+                        ],
+                        "edges": [
+                            {
+                                "edgeID": 1,
+                                "fromID": "4_164761847968435155",
+                                "toID": "5_164761847968435155"
+                            },
+                            {
+                                "edgeID": 2,
+                                "fromID": "3_164761847968435155",
+                                "toID": "4_164761847968435155"
+                            },
+                            {
+                                "edgeID": 3,
+                                "fromID": "9_164761847968435155",
+                                "toID": "10_164761847968435155"
+                            },
+                            {
+                                "edgeID": 4,
+                                "fromID": "8_164761847968435155",
+                                "toID": "9_164761847968435155"
+                            },
+                            {
+                                "edgeID": 5,
+                                "fromID": "3_164761847968435155",
+                                "toID": "14_164761847968435155"
+                            },
+                            {
+                                "edgeID": 6,
+                                "fromID": "14_164761847968435155",
+                                "toID": "8_164761847968435155"
+                            },
+                            {
+                                "edgeID": 7,
+                                "fromID": "16_164761847968435155",
+                                "toID": "17_164761847968435155"
+                            },
+                            {
+                                "edgeID": 8,
+                                "fromID": "15_164761847968435155",
+                                "toID": "16_164761847968435155"
+                            },
+                            {
+                                "edgeID": 9,
+                                "fromID": "21_164761847968435155",
+                                "toID": "22_164761847968435155"
+                            },
+                            {
+                                "edgeID": 10,
+                                "fromID": "20_164761847968435155",
+                                "toID": "21_164761847968435155"
+                            },
+                            {
+                                "edgeID": 11,
+                                "fromID": "8_164761847968435155",
+                                "toID": "26_164761847968435155"
+                            },
+                            {
+                                "edgeID": 12,
+                                "fromID": "26_164761847968435155",
+                                "toID": "15_164761847968435155"
+                            },
+                            {
+                                "edgeID": 13,
+                                "fromID": "17_164761847968435155",
+                                "toID": "28_164761847968435155"
+                            },
+                            {
+                                "edgeID": 14,
+                                "fromID": "28_164761847968435155",
+                                "toID": "10_164761847968435155"
+                            },
+                            {
+                                "edgeID": 15,
+                                "fromID": "26_164761847968435155",
+                                "toID": "30_164761847968435155"
+                            },
+                            {
+                                "edgeID": 16,
+                                "fromID": "30_164761847968435155",
+                                "toID": "28_164761847968435155"
+                            },
+                            {
+                                "edgeID": 17,
+                                "fromID": "15_164761847968435155",
+                                "toID": "32_164761847968435155"
+                            },
+                            {
+                                "edgeID": 18,
+                                "fromID": "32_164761847968435155",
+                                "toID": "20_164761847968435155"
+                            },
+                            {
+                                "edgeID": 19,
+                                "fromID": "34_164761847968435155",
+                                "toID": "35_164761847968435155"
+                            },
+                            {
+                                "edgeID": 20,
+                                "fromID": "33_164761847968435155",
+                                "toID": "34_164761847968435155"
+                            },
+                            {
+                                "edgeID": 21,
+                                "fromID": "20_164761847968435155",
+                                "toID": "39_164761847968435155"
+                            },
+                            {
+                                "edgeID": 22,
+                                "fromID": "39_164761847968435155",
+                                "toID": "33_164761847968435155"
+                            },
+                            {
+                                "edgeID": 23,
+                                "fromID": "22_164761847968435155",
+                                "toID": "41_164761847968435155"
+                            },
+                            {
+                                "edgeID": 24,
+                                "fromID": "41_164761847968435155",
+                                "toID": "35_164761847968435155"
+                            },
+                            {
+                                "edgeID": 25,
+                                "fromID": "39_164761847968435155",
+                                "toID": "43_164761847968435155"
+                            },
+                            {
+                                "edgeID": 26,
+                                "fromID": "43_164761847968435155",
+                                "toID": "41_164761847968435155"
+                            }
+                        ],
+                        "schemefulfillments": [
+                            {
+                                "nodeID": "2_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "3_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "4_164761847968435155",
+                                "schemeID": "91"
+                            },
+                            {
+                                "nodeID": "5_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "7_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "8_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "9_164761847968435155",
+                                "schemeID": "74"
+                            },
+                            {
+                                "nodeID": "10_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "12_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "14_164761847968435155",
+                                "schemeID": "82"
+                            },
+                            {
+                                "nodeID": "15_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "16_164761847968435155",
+                                "schemeID": "74"
+                            },
+                            {
+                                "nodeID": "17_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "19_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "20_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "21_164761847968435155",
+                                "schemeID": "74"
+                            },
+                            {
+                                "nodeID": "22_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "24_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "26_164761847968435155",
+                                "schemeID": "82"
+                            },
+                            {
+                                "nodeID": "28_164761847968435155",
+                                "schemeID": "144"
+                            },
+                            {
+                                "nodeID": "30_164761847968435155",
+                                "schemeID": "101"
+                            },
+                            {
+                                "nodeID": "32_164761847968435155",
+                                "schemeID": "82"
+                            },
+                            {
+                                "nodeID": "33_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "34_164761847968435155",
+                                "schemeID": "74"
+                            },
+                            {
+                                "nodeID": "35_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "37_164761847968435155",
+                                "schemeID": "0"
+                            },
+                            {
+                                "nodeID": "39_164761847968435155",
+                                "schemeID": "82"
+                            },
+                            {
+                                "nodeID": "41_164761847968435155",
+                                "schemeID": "72"
+                            },
+                            {
+                                "nodeID": "43_164761847968435155",
+                                "schemeID": "80"
+                            }
+                        ],
+                        "descriptorfulfillments": [],
+                        "participants": [
+                            {
+                                "participantID": 1,
+                                "firstname": "Participant",
+                                "surname": "Rachel"
+                            },
+                            {
+                                "participantID": 2,
+                                "firstname": "Participant",
+                                "surname": "Carolyn"
+                            },
+                            {
+                                "participantID": 3,
+                                "firstname": "Participant",
+                                "surname": "Mo"
+                            },
+                            {
+                                "participantID": 4,
+                                "firstname": "Participant",
+                                "surname": "Zoe"
+                            },
+                            {
+                                "participantID": 5,
+                                "firstname": "Participant",
+                                "surname": "Claire"
+                            },
+                            {
+                                "participantID": 6,
+                                "firstname": "Participant",
+                                "surname": "Lee"
+                            },
+                            {
+                                "participantID": 7,
+                                "firstname": "Participant",
+                                "surname": "Sally"
+                            },
+                            {
+                                "participantID": 8,
+                                "firstname": "Participant",
+                                "surname": "Kalbir"
+                            },
+                            {
+                                "participantID": 9,
+                                "firstname": "Participant",
+                                "surname": "Alice"
+                            },
+                            {
+                                "participantID": 10,
+                                "firstname": "Anne",
+                                "surname": "Robinson"
+                            },
+                            {
+                                "participantID": 11,
+                                "firstname": "Diane",
+                                "surname": "Munday"
+                            },
+                            {
+                                "participantID": 12,
+                                "firstname": "Neena",
+                                "surname": "Modi"
+                            },
+                            {
+                                "participantID": 13,
+                                "firstname": "David",
+                                "surname": "Steel"
+                            },
+                            {
+                                "participantID": 14,
+                                "firstname": "Neil",
+                                "surname": "Lyndon"
+                            },
+                            {
+                                "participantID": 15,
+                                "firstname": "Fiona",
+                                "surname": "Bruce"
+                            },
+                            {
+                                "participantID": 16,
+                                "firstname": "Anas",
+                                "surname": "Sarwar"
+                            },
+                            {
+                                "participantID": 17,
+                                "firstname": "Douglas",
+                                "surname": "Ross"
+                            },
+                            {
+                                "participantID": 18,
+                                "firstname": "Keith",
+                                "surname": "Brown"
+                            },
+                            {
+                                "participantID": 19,
+                                "firstname": "Lorna",
+                                "surname": "Slater"
+                            },
+                            {
+                                "participantID": 20,
+                                "firstname": "Willie",
+                                "surname": "Renner"
+                            },
+                            {
+                                "participantID": 21,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT01"
+                            },
+                            {
+                                "participantID": 22,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT02"
+                            },
+                            {
+                                "participantID": 23,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT03"
+                            },
+                            {
+                                "participantID": 24,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT04"
+                            },
+                            {
+                                "participantID": 25,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT05"
+                            },
+                            {
+                                "participantID": 26,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT06"
+                            },
+                            {
+                                "participantID": 27,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT07"
+                            },
+                            {
+                                "participantID": 28,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT08"
+                            },
+                            {
+                                "participantID": 29,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT09"
+                            },
+                            {
+                                "participantID": 30,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT10"
+                            },
+                            {
+                                "participantID": 31,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT11"
+                            },
+                            {
+                                "participantID": 32,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT12"
+                            },
+                            {
+                                "participantID": 33,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT13"
+                            },
+                            {
+                                "participantID": 34,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT14"
+                            },
+                            {
+                                "participantID": 35,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT15"
+                            },
+                            {
+                                "participantID": 36,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT16"
+                            },
+                            {
+                                "participantID": 37,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT17"
+                            },
+                            {
+                                "participantID": 38,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT18"
+                            },
+                            {
+                                "participantID": 39,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT19"
+                            },
+                            {
+                                "participantID": 40,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT20"
+                            },
+                            {
+                                "participantID": 41,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT21"
+                            },
+                            {
+                                "participantID": 42,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT22"
+                            },
+                            {
+                                "participantID": 43,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT23"
+                            },
+                            {
+                                "participantID": 44,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT24"
+                            },
+                            {
+                                "participantID": 45,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT25"
+                            },
+                            {
+                                "participantID": 46,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT26"
+                            },
+                            {
+                                "participantID": 47,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT27"
+                            },
+                            {
+                                "participantID": 48,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT28"
+                            },
+                            {
+                                "participantID": 49,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT29"
+                            },
+                            {
+                                "participantID": 50,
+                                "firstname": "AudienceMember",
+                                "surname": "20210429QT30"
+                            },
+                            {
+                                "participantID": 51,
+                                "firstname": "Blair",
+                                "surname": "Unknown"
+                            }
+                        ],
+                        "locutions": [
+                            {
+                                "nodeID": "3_164761847968435155",
+                                "personID": 51,
+                                "start": "2020-10-15 21:51:25",
+                                "end": null
+                            },
+                            {
+                                "nodeID": "8_164761847968435155",
+                                "personID": 17,
+                                "start": "2020-10-15 21:51:33",
+                                "end": null
+                            },
+                            {
+                                "nodeID": "15_164761847968435155",
+                                "personID": 17,
+                                "start": "2020-10-15 21:51:39",
+                                "end": null
+                            },
+                            {
+                                "nodeID": "20_164761847968435155",
+                                "personID": 17,
+                                "start": "2020-10-15 21:51:50",
+                                "end": null
+                            },
+                            {
+                                "nodeID": "33_164761847968435155",
+                                "personID": 17,
+                                "start": "2020-10-15 21:52:00",
+                                "end": null
+                            }
+                        ]
+                    },
+                    "OVA": {
+                        "firstname": "K",
+                        "surname": "G",
+                        "nodes": [
+                            {
+                                "nodeID": "2_164761847968435155",
+                                "visible": false,
+                                "x": 755,
+                                "y": 153,
+                                "timestamp": "Thu Oct 15 2020 22:51:25 GMT+0100 (British Summer Time)"
+                            },
+                            {
+                                "nodeID": "3_164761847968435155",
+                                "visible": true,
+                                "x": 747,
+                                "y": 111,
+                                "timestamp": "Thu Oct 15 2020 22:51:25 GMT+0100 (British Summer Time)"
+                            },
+                            {
+                                "nodeID": "4_164761847968435155",
+                                "visible": true,
+                                "x": 560,
+                                "y": 166,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "5_164761847968435155",
+                                "visible": true,
+                                "x": 271,
+                                "y": 119,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "7_164761847968435155",
+                                "visible": false,
+                                "x": 748,
+                                "y": -50,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "8_164761847968435155",
+                                "visible": true,
+                                "x": 759,
+                                "y": 340,
+                                "timestamp": "Thu Oct 15 2020 22:51:33 GMT+0100 (British Summer Time)"
+                            },
+                            {
+                                "nodeID": "9_164761847968435155",
+                                "visible": true,
+                                "x": 559,
+                                "y": 340,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "10_164761847968435155",
+                                "visible": true,
+                                "x": 283,
+                                "y": 340,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "12_164761847968435155",
+                                "visible": false,
+                                "x": 759,
+                                "y": -50,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "14_164761847968435155",
+                                "visible": true,
+                                "x": 786,
+                                "y": 269,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "15_164761847968435155",
+                                "visible": true,
+                                "x": 762,
+                                "y": 491,
+                                "timestamp": "Thu Oct 15 2020 22:51:39 GMT+0100 (British Summer Time)"
+                            },
+                            {
+                                "nodeID": "16_164761847968435155",
+                                "visible": true,
+                                "x": 582,
+                                "y": 506,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "17_164761847968435155",
+                                "visible": true,
+                                "x": 290,
+                                "y": 492,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "19_164761847968435155",
+                                "visible": false,
+                                "x": 762,
+                                "y": -50,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "20_164761847968435155",
+                                "visible": true,
+                                "x": 765,
+                                "y": 659,
+                                "timestamp": "Thu Oct 15 2020 22:51:50 GMT+0100 (British Summer Time)"
+                            },
+                            {
+                                "nodeID": "21_164761847968435155",
+                                "visible": true,
+                                "x": 565,
+                                "y": 678,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "22_164761847968435155",
+                                "visible": true,
+                                "x": 290,
+                                "y": 675,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "24_164761847968435155",
+                                "visible": false,
+                                "x": 765,
+                                "y": -50,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "26_164761847968435155",
+                                "visible": true,
+                                "x": 786.5,
+                                "y": 428,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "28_164761847968435155",
+                                "visible": true,
+                                "x": 313.5,
+                                "y": 433,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "30_164761847968435155",
+                                "visible": true,
+                                "x": 555,
+                                "y": 435,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "32_164761847968435155",
+                                "visible": true,
+                                "x": 810.5,
+                                "y": 605,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "33_164761847968435155",
+                                "visible": true,
+                                "x": 765,
+                                "y": 827,
+                                "timestamp": "Thu Oct 15 2020 22:52:00 GMT+0100 (British Summer Time)"
+                            },
+                            {
+                                "nodeID": "34_164761847968435155",
+                                "visible": true,
+                                "x": 565,
+                                "y": 827,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "35_164761847968435155",
+                                "visible": true,
+                                "x": 292,
+                                "y": 831,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "37_164761847968435155",
+                                "visible": false,
+                                "x": 765,
+                                "y": -50,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "39_164761847968435155",
+                                "visible": true,
+                                "x": 787,
+                                "y": 766,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "41_164761847968435155",
+                                "visible": true,
+                                "x": 319,
+                                "y": 764,
+                                "timestamp": ""
+                            },
+                            {
+                                "nodeID": "43_164761847968435155",
+                                "visible": true,
+                                "x": 558,
+                                "y": 770,
+                                "timestamp": ""
+                            }
+                        ],
+                        "edges": [
+                            {
+                                "fromID": "4_164761847968435155",
+                                "toID": "5_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "3_164761847968435155",
+                                "toID": "4_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "9_164761847968435155",
+                                "toID": "10_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "8_164761847968435155",
+                                "toID": "9_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "3_164761847968435155",
+                                "toID": "14_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "14_164761847968435155",
+                                "toID": "8_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "16_164761847968435155",
+                                "toID": "17_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "15_164761847968435155",
+                                "toID": "16_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "21_164761847968435155",
+                                "toID": "22_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "20_164761847968435155",
+                                "toID": "21_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "8_164761847968435155",
+                                "toID": "26_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "26_164761847968435155",
+                                "toID": "15_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "17_164761847968435155",
+                                "toID": "28_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "28_164761847968435155",
+                                "toID": "10_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "26_164761847968435155",
+                                "toID": "30_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "30_164761847968435155",
+                                "toID": "28_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "15_164761847968435155",
+                                "toID": "32_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "32_164761847968435155",
+                                "toID": "20_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "34_164761847968435155",
+                                "toID": "35_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "33_164761847968435155",
+                                "toID": "34_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "20_164761847968435155",
+                                "toID": "39_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "39_164761847968435155",
+                                "toID": "33_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "22_164761847968435155",
+                                "toID": "41_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "41_164761847968435155",
+                                "toID": "35_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "39_164761847968435155",
+                                "toID": "43_164761847968435155",
+                                "visible": true
+                            },
+                            {
+                                "fromID": "43_164761847968435155",
+                                "toID": "41_164761847968435155",
+                                "visible": true
+                            }
+                        ]
+                    },
+                    "text": {
+                        "txt": "Fiona Bruce[00:01:10] Our first question tonight is from Blair Wondin.<div><br></div><div>Blair Unknown[00:01:22] Hello. <span class=\"highlighted\" id=\"node1\"><span class=\"highlighted\" id=\"node3_164761847968435155\">If the main Scottish elections return a full independence government, what moral and legal right does the Westminster government have to deny another independence referendum</span></span>?</div><div><br></div><div>Fiona Bruce[00:01:32] Doug?</div><div><br></div><div>Douglas Ross[00:01:33] Well, <span class=\"highlighted\" id=\"node8_164761847968435155\">I want to stop a pro-independence majority government</span>, <span class=\"highlighted\" id=\"node15_164761847968435155\">I want to stop the SNP having a majority at this election, as the Scottish Conservatives did five years ago</span>. <span class=\"highlighted\" id=\"node20_164761847968435155\">It was by people uniting behind the Scottish Conservatives that stopped that SNP majority in 2016</span>, and <span class=\"highlighted\" id=\"node33_164761847968435155\">people can do that again at this election</span>. </div>",
+                        "url": ""
+                    }
+                }

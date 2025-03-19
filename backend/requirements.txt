@@ -1,0 +1,10 @@
+Flask
+flasgger
+flask_restful
+nltk==3.4.5
+tensorflow==1.5.0
+keras==2.1.5
+numpy==1.17.3
+scipy==1.3.1
+h5py
+Jinja2
