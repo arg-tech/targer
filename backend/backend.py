@@ -11,6 +11,7 @@ import json
 from flask import jsonify
 import json
 import logging
+import re
 from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
@@ -219,15 +220,23 @@ def ibm_am_label(inputtext):
 
 
 def is_json(file: str) -> bool:		
-	''' check if the file is valid json
-	'''
+  ''' check if the file is valid json
+  '''
 
-	try:
-		json.loads(open(file).read())
-	except ValueError as e:			
-		return False
+  try:
+    with open(file, 'r') as file:
+            content = file.read()
+    logging.debug(content)
+    content = re.sub(r"(\w+)'(\w+)", r'\1"\2', content)  # handle apostrophes inside words
 
-	return True
+    content = json.dumps(content)
+    #print(content)
+    parsed_content = json.loads(content)
+    
+  except ValueError as e:			
+    return False
+
+  return True
 
 def nodes_counter(nodeset: list):
 	return len([entry for entry in nodeset])

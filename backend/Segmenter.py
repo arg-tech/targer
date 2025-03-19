@@ -4,7 +4,7 @@ from flask import json
 from typing import Dict, List
 import logging
 logging.basicConfig(datefmt='%H:%M:%S',
-                    level=logging.DEBUG)
+                    level=logging.INFO)
 
 
 
@@ -14,17 +14,48 @@ class Segmenter():
 		self.modelIBM = modelIBM
 		self.nodeID_speaker = {}
 		
-
 	def is_json(self, file: str) -> bool:		
 		''' check if the file is valid json
 		'''
 
 		try:
-			json.loads(open(file).read())
+			with open(file, 'r') as file:
+					content = file.read()
+			
+			#content = re.sub(r"(\w+)'(\w+)", r'\1"\2', content)  # handle apostrophes inside words
+
+			content = json.dumps(content)
+			#print(content)
+			logging.debug(content)
+			parsed_content = json.loads(content)
+			
 		except ValueError as e:			
 			return False
 
 		return True
+
+
+	def is_json2(self, file: str) -> bool:
+		''' check if the file is valid json
+		'''
+		try:
+			# Open the file and read its content
+			content = open(file).read()
+			#logging.debug("Original content: %s", content)
+
+			# Replace single quotes with double quotes
+			#content = content.replace("'", '"')
+			#logging.debug("after replacement content: %s", content)
+
+			# Try to load the JSON from the modified content
+			json.loads(json.dumps(content))
+
+
+		except ValueError as e:
+			return False
+
+		return True
+
 
 	def parse_inp(self, path):
 		data=open(path).read()+"\n"
@@ -43,6 +74,7 @@ class Segmenter():
 		return first_names,last_names,texts  
 
 	def get_next_max_id(self, nodes, n_type):
+
 		"""
 		This function takes a list of nodes and returns the maximum node ID.
 
@@ -55,7 +87,8 @@ class Segmenter():
 		# Initialize a variable to store the maximum node ID found so far
 		max_id  = 0
 		lef_n_id, right_n_id = 0, ""
-	
+		if len(nodes) == 0:
+			return 0
 		if isinstance(nodes[0][n_type],str):
 			if "_" in nodes[0][n_type]:
 				
@@ -362,16 +395,40 @@ class Segmenter():
 			prop,
 			count_L_nodes
 			)
+	def convert_single_to_double_quotes(self, data):
+		# Replace single quotes with double quotes safely
+		data = data.replace("'", '"')
+
+		# Validate and ensure correct JSON formatting
+		try:
+			parsed_json = json.loads(data)
+			return json.dumps(parsed_json, indent=4)  # Pretty-print JSON
+		except json.JSONDecodeError:
+			print("Warning: Attempting alternative parsing...")
+			try:
+				parsed_json = eval(data)  # Converts Python-style dict to valid JSON
+				return json.dumps(parsed_json, indent=4)
+			except Exception as e:
+				raise ValueError("Invalid JSON or Python dictionary format:")
 
 	def cascading_anaphora_propositionalizer(self, path):       
 		if path.endswith("json"):
 			is_json_file=self.is_json(path)                     
 			if is_json_file: 
-				data = open(path).read()                              
-				extended_json_aif = json.loads(data)
+				data = open(path).read()   
+				#data = self.convert_single_to_double_quotes(data)  # Convert single to double quotes 
+				#data = re.sub(r"(\w+)'(\w+)", r'\1"\2', data)  # handle apostrophes inside words
+
+				#data = json.dumps(data)
+				#print(content)
+				#parsed_content = json.loads(content)
+                        
+				extended_json_aif = eval(data)
 				json_aif = json_dict = extended_json_aif['AIF']
 				
-				if 'nodes' in json_dict and 'locutions' in json_dict and 'edges' in json_dict:					
+				
+				if 'nodes' in json_dict and 'locutions' in json_dict and 'edges' in json_dict:	
+			
 					participants = json_dict.get("participants")               
 					locutions = json_dict.get("locutions")
 					edges = json_dict.get("edges")
@@ -389,6 +446,7 @@ class Segmenter():
 								_, speaker_id = self.get_speaker(node_id, locutions, participants)
 							
 							props = self.ibm_segmenter(nodes_entry['text'])
+
 							if len(props) > 1:
 								for prop in props:
 									n_id = self.get_next_max_id(nodes, 'nodeID')
@@ -462,7 +520,7 @@ class Segmenter():
 
 		if is_json_file:
 			data = open(path).read()		
-			extended_json_aif = json.loads(data)
+			extended_json_aif = eval(data)
 			json_dict = extended_json_aif['AIF']
 			dialog = extended_json_aif.get('dialog')
 			if not dialog:
