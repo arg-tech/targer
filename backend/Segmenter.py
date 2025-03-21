@@ -55,7 +55,8 @@ class Segmenter():
 		# Initialize a variable to store the maximum node ID found so far
 		max_id  = 0
 		lef_n_id, right_n_id = 0, ""
-	
+		if len(nodes) == 0:
+			return 0
 		if isinstance(nodes[0][n_type],str):
 			if "_" in nodes[0][n_type]:
 				
@@ -368,7 +369,7 @@ class Segmenter():
 			is_json_file=self.is_json(path)                     
 			if is_json_file: 
 				data = open(path).read()                              
-				extended_json_aif = json.loads(data)
+				extended_json_aif = eval(data)
 				json_aif = json_dict = extended_json_aif['AIF']
 				
 				if 'nodes' in json_dict and 'locutions' in json_dict and 'edges' in json_dict:					
