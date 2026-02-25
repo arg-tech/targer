@@ -1,0 +1,104 @@
+meta {
+  name: targer-am POST
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/targer-am
+  body: multipartForm
+}
+
+body:multipart-form {
+  file: @file(test-inputs/json-aif.json)
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return valid xAIF envelope", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('AIF');
+    expect(data.AIF).to.have.property('nodes');
+    expect(data.AIF).to.have.property('edges');
+    expect(data.AIF).to.have.property('locutions');
+  });
+
+  test("should preserve all original I-nodes", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const iNodes = nodes.filter(n => n.type === 'I');
+    // Original input has 5 I-nodes
+    expect(iNodes.length).to.be.at.least(5);
+    const iTexts = iNodes.map(n => n.text.trim());
+    expect(iTexts).to.include('We should go eat.');
+    expect(iTexts).to.include('Because I\'m hungry');
+  });
+
+  test("should preserve all original L-nodes and YA-nodes", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const lNodes = nodes.filter(n => n.type === 'L');
+    const yaNodes = nodes.filter(n => n.type === 'YA');
+    expect(lNodes.length).to.be.at.least(5);
+    expect(yaNodes.length).to.be.at.least(5);
+  });
+
+  test("every edge should reference existing nodeIDs", function() {
+    const data = res.getBody();
+    const nodeIDs = new Set(data.AIF.nodes.map(n => n.nodeID));
+    for (const edge of data.AIF.edges) {
+      expect(nodeIDs.has(edge.fromID), `fromID ${edge.fromID} not in nodes`).to.be.true;
+      expect(nodeIDs.has(edge.toID), `toID ${edge.toID} not in nodes`).to.be.true;
+    }
+  });
+
+  test("every node should have required fields", function() {
+    const data = res.getBody();
+    for (const node of data.AIF.nodes) {
+      expect(node).to.have.property('nodeID');
+      expect(node).to.have.property('text');
+      expect(node).to.have.property('type');
+    }
+  });
+
+  test("every edge should have required fields", function() {
+    const data = res.getBody();
+    for (const edge of data.AIF.edges) {
+      expect(edge).to.have.property('edgeID');
+      expect(edge).to.have.property('fromID');
+      expect(edge).to.have.property('toID');
+    }
+  });
+
+  test("RA/CA relation nodes should have proper edge structure", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const edges = data.AIF.edges;
+    const relationNodes = nodes.filter(n => n.type === 'RA' || n.type === 'CA');
+
+    for (const rNode of relationNodes) {
+      // Each RA/CA node should have at least one incoming and one outgoing edge
+      const incoming = edges.filter(e => e.toID === rNode.nodeID);
+      const outgoing = edges.filter(e => e.fromID === rNode.nodeID);
+      expect(incoming.length, `RA/CA node ${rNode.nodeID} should have incoming edge`).to.be.at.least(1);
+      expect(outgoing.length, `RA/CA node ${rNode.nodeID} should have outgoing edge`).to.be.at.least(1);
+    }
+  });
+
+  test("node IDs should be unique", function() {
+    const data = res.getBody();
+    const nodeIDs = data.AIF.nodes.map(n => n.nodeID);
+    const uniqueIDs = new Set(nodeIDs);
+    expect(uniqueIDs.size).to.equal(nodeIDs.length);
+  });
+
+  test("edge IDs should be unique", function() {
+    const data = res.getBody();
+    const edgeIDs = data.AIF.edges.map(e => e.edgeID);
+    const uniqueIDs = new Set(edgeIDs);
+    expect(uniqueIDs.size).to.equal(edgeIDs.length);
+  });
+}

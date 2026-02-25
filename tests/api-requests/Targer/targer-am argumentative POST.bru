@@ -1,0 +1,77 @@
+meta {
+  name: targer-am argumentative POST
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/targer-am
+  body: multipartForm
+}
+
+body:multipart-form {
+  file: @file(test-inputs/argumentative-aif.json)
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return valid xAIF with AIF section", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('AIF');
+    expect(data.AIF).to.have.property('nodes');
+    expect(data.AIF).to.have.property('edges');
+    expect(data.AIF).to.have.property('locutions');
+  });
+
+  test("should preserve both original I-nodes", function() {
+    const data = res.getBody();
+    const iNodes = data.AIF.nodes.filter(n => n.type === 'I');
+    expect(iNodes.length).to.be.at.least(2);
+  });
+
+  test("should have more nodes/edges than input (relations added)", function() {
+    const data = res.getBody();
+    // Input has 6 nodes and 4 edges; AM should add RA/CA nodes + edges
+    const nodes = data.AIF.nodes;
+    const edges = data.AIF.edges;
+    expect(nodes.length).to.be.at.least(6);
+    expect(edges.length).to.be.at.least(4);
+  });
+
+  test("RA nodes should link between I-nodes via edges", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const edges = data.AIF.edges;
+    const raNodes = nodes.filter(n => n.type === 'RA');
+
+    for (const ra of raNodes) {
+      expect(ra.text).to.equal('Default Inference');
+      // RA node should have an incoming edge from an I-node
+      const incoming = edges.filter(e => e.toID === ra.nodeID);
+      expect(incoming.length).to.be.at.least(1);
+      // RA node should have an outgoing edge to an I-node
+      const outgoing = edges.filter(e => e.fromID === ra.nodeID);
+      expect(outgoing.length).to.be.at.least(1);
+    }
+  });
+
+  test("all node types should be valid AIF types", function() {
+    const data = res.getBody();
+    const validTypes = ['L', 'I', 'YA', 'RA', 'CA', 'MA', 'TA', 'PA'];
+    for (const node of data.AIF.nodes) {
+      expect(validTypes).to.include(node.type);
+    }
+  });
+
+  test("every edge should reference existing nodes", function() {
+    const data = res.getBody();
+    const nodeIDs = new Set(data.AIF.nodes.map(n => n.nodeID));
+    for (const edge of data.AIF.edges) {
+      expect(nodeIDs.has(edge.fromID), `fromID ${edge.fromID} missing`).to.be.true;
+      expect(nodeIDs.has(edge.toID), `toID ${edge.toID} missing`).to.be.true;
+    }
+  });
+}

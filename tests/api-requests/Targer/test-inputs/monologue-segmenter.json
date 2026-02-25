@@ -1,0 +1,9 @@
+{"AIF": {"descriptorfulfillments": null,
+"edges": [{"edgeID": 0, "fromID": 0, "toID": 2}, {"edgeID": 1, "fromID": 2, "toID": 1}],
+ "locutions": [{"nodeID": 0, "personID": 0}],
+ "nodes": [
+ {"nodeID": 0, "text": "We should invest more in renewable energy because fossil fuels cause climate change and renewable sources create more jobs than traditional energy.", "type": "L"},
+ {"nodeID": 1, "text": "We should invest more in renewable energy because fossil fuels cause climate change and renewable sources create more jobs than traditional energy.", "type": "I"},
+ {"nodeID": 2, "text": "Default Illocuting", "type": "YA"}],
+ "participants": [{"firstname": "Alice", "participantID": 0, "surname": "None"}],
+ "schemefulfillments": null}, "OVA": [], "dialog": true, "text": ""}

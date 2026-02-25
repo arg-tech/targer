@@ -1,0 +1,50 @@
+meta {
+  name: targer-am single-proposition POST
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/targer-am
+  body: multipartForm
+}
+
+body:multipart-form {
+  file: @file(test-inputs/single-proposition-aif.json)
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return valid xAIF", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('AIF');
+    expect(data.AIF).to.have.property('nodes');
+    expect(data.AIF).to.have.property('edges');
+  });
+
+  test("should not add RA/CA nodes for a single proposition", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const relationNodes = nodes.filter(n => n.type === 'RA' || n.type === 'CA');
+    // With only one I-node there are no pairs to compare, so no relations
+    expect(relationNodes.length).to.equal(0);
+  });
+
+  test("should preserve the original graph unchanged", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const edges = data.AIF.edges;
+    // Original: 3 nodes (L, I, YA) and 2 edges
+    expect(nodes.length).to.equal(3);
+    expect(edges.length).to.equal(2);
+  });
+
+  test("original node types should be preserved", function() {
+    const data = res.getBody();
+    const types = data.AIF.nodes.map(n => n.type).sort();
+    expect(types).to.deep.equal(['I', 'L', 'YA']);
+  });
+}
