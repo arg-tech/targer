@@ -1,0 +1,77 @@
+meta {
+  name: targer-segmenter POST
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/targer-segmenter
+  body: multipartForm
+}
+
+body:multipart-form {
+  file: @file(test-inputs/propositionUnitizer.json)
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return valid xAIF envelope", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('AIF');
+    expect(data.AIF).to.have.property('nodes');
+    expect(data.AIF).to.have.property('edges');
+    expect(data.AIF).to.have.property('locutions');
+  });
+
+  test("every node should have required fields", function() {
+    const data = res.getBody();
+    for (const node of data.AIF.nodes) {
+      expect(node).to.have.property('nodeID');
+      expect(node).to.have.property('text');
+      expect(node).to.have.property('type');
+    }
+  });
+
+  test("every edge should reference existing nodeIDs", function() {
+    const data = res.getBody();
+    const nodeIDs = new Set(data.AIF.nodes.map(n => n.nodeID));
+    for (const edge of data.AIF.edges) {
+      expect(nodeIDs.has(edge.fromID), `fromID ${edge.fromID} not in nodes`).to.be.true;
+      expect(nodeIDs.has(edge.toID), `toID ${edge.toID} not in nodes`).to.be.true;
+    }
+  });
+
+  test("node IDs should be unique", function() {
+    const data = res.getBody();
+    const nodeIDs = data.AIF.nodes.map(n => n.nodeID);
+    const uniqueIDs = new Set(nodeIDs);
+    expect(uniqueIDs.size).to.equal(nodeIDs.length);
+  });
+
+  test("edge IDs should be unique", function() {
+    const data = res.getBody();
+    const edgeIDs = data.AIF.edges.map(e => e.edgeID);
+    const uniqueIDs = new Set(edgeIDs);
+    expect(uniqueIDs.size).to.equal(edgeIDs.length);
+  });
+
+  test("all node types should be valid AIF types", function() {
+    const data = res.getBody();
+    const validTypes = ['L', 'I', 'YA', 'RA', 'CA', 'MA', 'TA', 'PA'];
+    for (const node of data.AIF.nodes) {
+      expect(validTypes).to.include(node.type);
+    }
+  });
+
+  test("each L-node should have a corresponding locution entry", function() {
+    const data = res.getBody();
+    const lNodeIDs = new Set(data.AIF.nodes.filter(n => n.type === 'L').map(n => n.nodeID));
+    const locutionNodeIDs = new Set(data.AIF.locutions.map(l => l.nodeID));
+    for (const lID of lNodeIDs) {
+      expect(locutionNodeIDs.has(lID), `L-node ${lID} missing locution`).to.be.true;
+    }
+  });
+}

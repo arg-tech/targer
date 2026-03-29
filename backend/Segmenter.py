@@ -368,10 +368,8 @@ class Segmenter():
 		if path.endswith("json"):
 			is_json_file=self.is_json(path)                     
 			if is_json_file: 
-				data = open(path).read()    
-				null = None
-				false = False                          
-				extended_json_aif = eval(data)
+				data = open(path).read()
+				extended_json_aif = json.loads(data)
 				json_aif = json_dict = extended_json_aif['AIF']
 				
 				if 'nodes' in json_dict and 'locutions' in json_dict and 'edges' in json_dict:					

@@ -1,26 +1,16 @@
 #!/usr/bin/env python3
 
 """be.py: Description."""
-from flask import Flask, jsonify, request
-from flasgger import Swagger, LazyString, LazyJSONEncoder
+from flask import Flask, jsonify, request, make_response
 from flask_restful import Api, Resource, reqparse
-from flask import make_response
-from nltk.tokenize import sent_tokenize, word_tokenize
-import random
-import json
-from flask import jsonify
+from flask_cors import CORS
 import json
 import logging
 from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
-#app.json_encoder = LazyJSONEncoder
+CORS(app, resources={r"/*": {"origins": "https://arg-tech.github.io"}})
 
-
-# Initialize Prometheus metrics
-#metrics = PrometheusMetrics(app)
-
-# group by endpoint rather than path
 metrics = PrometheusMetrics(app)
 
 @app.route('/collection/:collection_id/item/:item_id')

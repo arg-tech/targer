@@ -1,0 +1,8 @@
+{"AIF": {"descriptorfulfillments": null,
+"edges": [{"edgeID": 1, "fromID": 1, "toID": 4}, {"edgeID": 2, "fromID": 4, "toID": 3}],
+ "locutions": [{"nodeID": 1, "personID": "Alice:"}],
+ "nodes": [
+ {"nodeID": 1, "text": "The weather is nice today.", "type": "L"},
+ {"nodeID": 3, "text": "The weather is nice today.", "type": "I"},
+ {"nodeID": 4, "text": "Default Illocuting", "type": "YA"}],
+ "participants": null, "schemefulfillments": null}, "OVA": [], "dialog": true, "text": ""}

@@ -1,0 +1,33 @@
+meta {
+  name: targer-segmenter GET
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/targer-segmenter
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return service description", function() {
+    const body = res.getBody();
+    expect(body).to.be.a('string');
+    expect(body).to.include('Segmenter');
+    expect(body).to.include('AMF');
+    expect(body).to.include('propositions');
+  });
+
+  test("should describe input/output format", function() {
+    const body = res.getBody();
+    expect(body).to.include('xIAF');
+  });
+
+  test("should mention the BIO labeling scheme", function() {
+    const body = res.getBody();
+    expect(body).to.include('BIO');
+  });
+}

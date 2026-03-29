@@ -1,0 +1,14 @@
+{"AIF": {"descriptorfulfillments": null,
+"edges": [{"edgeID": 1, "fromID": 1, "toID": 4}, {"edgeID": 2, "fromID": 4, "toID": 3},
+ {"edgeID": 3, "fromID": 5, "toID": 8}, {"edgeID": 4, "fromID": 8, "toID": 7}],
+ "locutions": [
+ {"nodeID": 1, "personID": "Alice:"},
+ {"nodeID": 5, "personID": "Bob:"}],
+ "nodes": [
+ {"nodeID": 1, "text": "We should ban smoking in all public places because it harms non-smokers.", "type": "L"},
+ {"nodeID": 3, "text": "We should ban smoking in all public places because it harms non-smokers.", "type": "I"},
+ {"nodeID": 4, "text": "Default Illocuting", "type": "YA"},
+ {"nodeID": 5, "text": "Second-hand smoke is a proven cause of lung cancer and heart disease in non-smokers.", "type": "L"},
+ {"nodeID": 7, "text": "Second-hand smoke is a proven cause of lung cancer and heart disease in non-smokers.", "type": "I"},
+ {"nodeID": 8, "text": "Default Illocuting", "type": "YA"}],
+ "participants": null, "schemefulfillments": null}, "OVA": [], "dialog": true, "text": ""}

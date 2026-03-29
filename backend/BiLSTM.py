@@ -8,10 +8,10 @@ License: Apache-2.0
 from __future__ import print_function
 from util import BIOF1Validation
 
-import keras
-from keras.optimizers import *
-from keras.models import Model
-from keras.layers import *
+from tensorflow import keras
+from tensorflow.keras.optimizers import *
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import *
 import math
 import numpy as np
 import sys
@@ -243,7 +243,7 @@ class BiLSTM:
             elif self.params['optimizer'].lower() == 'adagrad':
                 opt = Adagrad(**optimizerParams)
             elif self.params['optimizer'].lower() == 'sgd':
-                opt = SGD(lr=0.1, **optimizerParams)
+                opt = SGD(learning_rate=0.1, **optimizerParams)
             
             
             model = Model(inputs=inputNodes, outputs=[output])

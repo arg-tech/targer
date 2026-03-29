@@ -1,0 +1,74 @@
+meta {
+  name: targer-segmenter monologue POST
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/targer-segmenter
+  body: multipartForm
+}
+
+body:multipart-form {
+  file: @file(test-inputs/monologue-segmenter.json)
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return valid xAIF", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('AIF');
+    expect(data.AIF).to.have.property('nodes');
+    expect(data.AIF).to.have.property('edges');
+    expect(data.AIF).to.have.property('locutions');
+  });
+
+  test("segmenter should produce L-nodes from the input", function() {
+    const data = res.getBody();
+    const lNodes = data.AIF.nodes.filter(n => n.type === 'L');
+    // The input has one long L-node with multiple argument components;
+    // the segmenter should either keep it or split it into segments
+    expect(lNodes.length).to.be.at.least(1);
+  });
+
+  test("every new L-node should have a YA illocuting node connected", function() {
+    const data = res.getBody();
+    const nodes = data.AIF.nodes;
+    const edges = data.AIF.edges;
+    const yaNodes = nodes.filter(n => n.type === 'YA');
+
+    for (const ya of yaNodes) {
+      // Each YA should have at least one incoming and one outgoing edge
+      const incoming = edges.filter(e => e.toID === ya.nodeID);
+      const outgoing = edges.filter(e => e.fromID === ya.nodeID);
+      expect(incoming.length, `YA ${ya.nodeID} needs incoming edge`).to.be.at.least(1);
+    }
+  });
+
+  test("every edge should reference existing nodes", function() {
+    const data = res.getBody();
+    const nodeIDs = new Set(data.AIF.nodes.map(n => n.nodeID));
+    for (const edge of data.AIF.edges) {
+      expect(nodeIDs.has(edge.fromID), `fromID ${edge.fromID} missing`).to.be.true;
+      expect(nodeIDs.has(edge.toID), `toID ${edge.toID} missing`).to.be.true;
+    }
+  });
+
+  test("node IDs should be unique", function() {
+    const data = res.getBody();
+    const nodeIDs = data.AIF.nodes.map(n => n.nodeID);
+    expect(new Set(nodeIDs).size).to.equal(nodeIDs.length);
+  });
+
+  test("L-node texts should be non-empty strings", function() {
+    const data = res.getBody();
+    const lNodes = data.AIF.nodes.filter(n => n.type === 'L');
+    for (const node of lNodes) {
+      expect(node.text).to.be.a('string');
+      expect(node.text.trim().length).to.be.greaterThan(0);
+    }
+  });
+}

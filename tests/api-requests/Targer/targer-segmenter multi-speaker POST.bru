@@ -1,0 +1,74 @@
+meta {
+  name: targer-segmenter multi-speaker POST
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/targer-segmenter
+  body: multipartForm
+}
+
+body:multipart-form {
+  file: @file(test-inputs/multi-speaker-segmenter.json)
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("should return valid xAIF", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('AIF');
+    expect(data.AIF).to.have.property('nodes');
+    expect(data.AIF).to.have.property('edges');
+    expect(data.AIF).to.have.property('locutions');
+  });
+
+  test("should have L-nodes in the output", function() {
+    const data = res.getBody();
+    const lNodes = data.AIF.nodes.filter(n => n.type === 'L');
+    // Input has 3 L-nodes with compound arguments; segmenter may split them
+    expect(lNodes.length).to.be.at.least(1);
+  });
+
+  test("should preserve participant information", function() {
+    const data = res.getBody();
+    // The segmenter should not lose locution entries
+    expect(data.AIF.locutions.length).to.be.at.least(1);
+  });
+
+  test("speaker IDs in locutions should reference original participants", function() {
+    const data = res.getBody();
+    // At least some locutions should have personIDs from the original input
+    const personIDs = data.AIF.locutions.map(l => l.personID);
+    const hasValidSpeaker = personIDs.some(id => id === 0 || id === 1);
+    expect(hasValidSpeaker).to.be.true;
+  });
+
+  test("all node types should be valid AIF types", function() {
+    const data = res.getBody();
+    const validTypes = ['L', 'I', 'YA', 'RA', 'CA', 'MA', 'TA', 'PA'];
+    for (const node of data.AIF.nodes) {
+      expect(validTypes).to.include(node.type);
+    }
+  });
+
+  test("every edge should reference existing nodeIDs", function() {
+    const data = res.getBody();
+    const nodeIDs = new Set(data.AIF.nodes.map(n => n.nodeID));
+    for (const edge of data.AIF.edges) {
+      expect(nodeIDs.has(edge.fromID), `fromID ${edge.fromID} not in nodes`).to.be.true;
+      expect(nodeIDs.has(edge.toID), `toID ${edge.toID} not in nodes`).to.be.true;
+    }
+  });
+
+  test("node and edge IDs should be unique", function() {
+    const data = res.getBody();
+    const nodeIDs = data.AIF.nodes.map(n => n.nodeID);
+    expect(new Set(nodeIDs).size).to.equal(nodeIDs.length);
+    const edgeIDs = data.AIF.edges.map(e => e.edgeID);
+    expect(new Set(edgeIDs).size).to.equal(edgeIDs.length);
+  });
+}
