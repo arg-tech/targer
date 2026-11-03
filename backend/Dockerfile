@@ -1,4 +1,4 @@
-FROM python:3.11-slim@sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf
+FROM python:3.11-slim@sha256:db20d8506e2f15b6db39b40b6015ca46bae855dec6dd326d462cfe79ae972893
 COPY --from=ghcr.io/astral-sh/uv:0.10.1 /uv /uvx /bin/
 
 ENV UV_LINK_MODE=copy \
